@@ -1,9 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include <deque>
+#define all(x) x.begin(), x.end()
 using namespace std;
 //////////////// نفس vector بس شغله بتختلف 
-////////////////
+//////////////// سطر 57
 
 void funDeque1(){
  deque<int> v(5, 4);
@@ -57,11 +58,23 @@ void funDeque2()
 void funDeque3(){
     deque<int> d = {1, 2, 3, 4, 5, 6, 7, 8};
 d.erase(d.begin());//مسح اول رقم 
-d.erase(d.begin()+2);//مسح اول رقم 
+d.erase(d.begin()+2);//مسح رقم 
 for(auto it :d)
 {
     cout<<it<<" ";
 }
+}
+///////////////////////////
+///////////////////////////
+/////////////////////////// يمحي التكرار
+
+void funDeque4(){
+ deque<int> d={1,2,3,3,3,4,5,6,6,6,6};
+ d.erase(unique(all(d)),d.end());
+    for (auto it : d)
+    {
+        cout << it << endl;
+    }
 }
 
 //////////////////////////
@@ -76,5 +89,7 @@ int main(int argc, char const *argv[])
     funDeque2();
     cout << "\n--------------------\n";
     funDeque3();
+    cout << "\n--------------------\n";
+    funDeque4();//دون تكرار
     return 0;
 }
